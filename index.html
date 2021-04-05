@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+</head>
+<body>
+      <center>
+          <h1>Student Management System</h1>
+          <h2>Django Application</h2>
+          <hr/>
+<!--          <a href="{% url 'stinsert'%}">Add Student Record</a>-->
+          <table border="=1">
+              <tr>
+                  <th>Student Id</th>
+                  <th>Student Name</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>Mobile No</th>
+                  <th>Gender</th>
+                  <th>Action</th>
+              </tr>
+              {% for stdisplay in Student %}
+              <tr>
+                  <td>{{stdisplay.id}}</td>
+                  <td>{{stdisplay.stname}}</td>
+                  <td>{{stdisplay.stemail}}</td>
+                  <td>{{stdisplay.staddress}}</td>
+                  <td>{{stdisplay.stmobile}}</td>
+                  <td>{{stdisplay.stgender}}</td>
+                  <td><a href="/Edit/{{stdisplay.id}}">Edit</a></td>
+                  <td><a href="/Delete/{{stdisplay.id}}" onclick="return confirm('Are You Sure You Want To Delete ?')">Delete</a></td>
+              </tr>
+
+              {% endfor %}
+              <a href="{% url 'signup'%}"><button>Home</button></a>
+
+          </table>
+
+      </center>
+
+</body>
+</html>
